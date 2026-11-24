@@ -296,6 +296,58 @@ html {
     max-width: 800px;
 }
 
+.hero-plant {
+    position: absolute;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+    user-select: none;
+    transform-style: preserve-3d;
+    perspective: 600px;
+    filter: drop-shadow(0 22px 18px rgba(31, 41, 55, 0.18));
+}
+
+.hero-plant span {
+    display: block;
+    animation: plant-hover 4s ease-in-out infinite;
+    transform-origin: center bottom;
+    text-shadow:
+        8px 10px 0 rgba(5, 150, 105, 0.06),
+        -4px 5px 0 rgba(255, 255, 255, 0.65);
+}
+
+.hero-plant-small {
+    left: clamp(1.5rem, 5vw, 5.5rem);
+    bottom: 12%;
+}
+
+.hero-plant-small span {
+    font-size: clamp(4.5rem, 7vw, 7rem);
+    transform: rotateY(-12deg) rotateZ(-3deg);
+}
+
+.hero-tree {
+    left: clamp(7rem, 12vw, 12rem);
+    top: 24%;
+}
+
+.hero-tree span {
+    font-size: clamp(7rem, 12vw, 12rem);
+    animation-duration: 5.5s;
+    animation-delay: -1.2s;
+    transform: rotateY(10deg);
+}
+
+@keyframes plant-hover {
+    0%, 100% {
+        transform: translateY(0) rotateY(-8deg) rotateZ(-2deg);
+    }
+    50% {
+        transform: translateY(-18px) rotateY(8deg) rotateZ(2deg);
+    }
+}
+
 .badge {
     display: inline-block;
     padding: 0.5rem 1rem;
