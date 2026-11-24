@@ -40,3 +40,21 @@ window.addEventListener('scroll', () => {
         link.classList.toggle('active', link.getAttribute('href') === `#${currentSection}`);
     });
 });
+
+// Rotate the reviews in the Home hero
+const heroReviews = document.querySelectorAll('.hero-review');
+let activeReview = 0;
+
+if (heroReviews.length > 1) {
+    setInterval(() => {
+        const currentReview = heroReviews[activeReview];
+        currentReview.classList.remove('active');
+        currentReview.classList.add('leaving');
+
+        activeReview = (activeReview + 1) % heroReviews.length;
+        heroReviews[activeReview].classList.remove('leaving');
+        heroReviews[activeReview].classList.add('active');
+
+        setTimeout(() => currentReview.classList.remove('leaving'), 700);
+    }, 4000);
+}

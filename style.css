@@ -392,6 +392,101 @@ html {
     flex-wrap: wrap;
 }
 
+.hero-reviews {
+    position: absolute;
+    right: clamp(1.5rem, 4vw, 5rem);
+    top: 50%;
+    z-index: 3;
+    width: 260px;
+    height: 190px;
+    transform: translateY(-46%);
+    perspective: 1000px;
+}
+
+.hero-review {
+    position: absolute;
+    inset: 0;
+    padding: 1.35rem;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 18px 45px rgba(31, 41, 55, 0.14);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    opacity: 0;
+    transform: translateY(18px) rotateY(-12deg) scale(0.94);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+    pointer-events: none;
+}
+
+.hero-review.active {
+    opacity: 1;
+    transform: translateY(0) rotateY(0) scale(1);
+    animation: review-hover 4s ease-in-out infinite;
+    pointer-events: auto;
+}
+
+.hero-review.leaving {
+    opacity: 0;
+    transform: translateX(28px) translateY(-12px) rotateY(10deg) scale(0.94);
+}
+
+.review-stars {
+    color: #f59e0b;
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+}
+
+.hero-review > p {
+    margin: 0.65rem 0 1rem;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    line-height: 1.45;
+    font-weight: 600;
+}
+
+.review-author {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-align: left;
+}
+
+.review-avatar {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-light), #0ea5e9);
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.review-author div {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-author strong {
+    font-size: 0.86rem;
+}
+
+.review-author small {
+    color: var(--text-muted);
+    font-size: 0.72rem;
+}
+
+@keyframes review-hover {
+    0%, 100% {
+        transform: translateY(0) rotateY(-2deg);
+    }
+    50% {
+        transform: translateY(-14px) rotateY(3deg);
+    }
+}
+
 /* Supporters Section */
 .supporters {
     padding: 6rem 2rem;
@@ -486,6 +581,28 @@ html {
     .menu-toggle {
         display: flex;
     }
+
+    .hero-plant-small {
+        left: 0.5rem;
+        bottom: 7%;
+        z-index: 0;
+        opacity: 0.75;
+    }
+
+    .hero-plant-small span {
+        font-size: 3.5rem;
+    }
+
+    .hero-tree {
+        left: -1.5rem;
+        top: 16%;
+        z-index: 0;
+        opacity: 0.55;
+    }
+
+    .hero-tree span {
+        font-size: 6.5rem;
+    }
     
     .nav-actions {
         display: none;
@@ -522,6 +639,15 @@ html {
 
     .supporters-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-reviews {
+        position: relative;
+        right: auto;
+        top: auto;
+        width: min(260px, calc(100vw - 2.5rem));
+        margin: 2.5rem auto -2rem;
+        transform: none;
     }
 }
 
