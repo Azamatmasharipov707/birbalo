@@ -72,7 +72,9 @@ html {
 }
 
 .logo-icon {
-    font-size: 2rem;
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
     filter: drop-shadow(0 4px 6px rgba(16, 185, 129, 0.3));
     animation: floating 3s ease-in-out infinite;
 }
@@ -317,13 +319,21 @@ html {
         -4px 5px 0 rgba(255, 255, 255, 0.65);
 }
 
+.hero-plant img {
+    display: block;
+    width: clamp(5.5rem, 9vw, 8rem);
+    height: auto;
+    animation: plant-hover 4s ease-in-out infinite;
+    filter: drop-shadow(0 14px 14px rgba(31, 41, 55, 0.18));
+}
+
 .hero-plant-small {
     left: clamp(1.5rem, 5vw, 5.5rem);
     bottom: 12%;
 }
 
-.hero-plant-small span {
-    font-size: clamp(4.5rem, 7vw, 7rem);
+.hero-plant-small img {
+    width: clamp(5.5rem, 9vw, 8rem);
     transform: rotateY(-12deg) rotateZ(-3deg);
 }
 
@@ -589,8 +599,8 @@ html {
         opacity: 0.75;
     }
 
-    .hero-plant-small span {
-        font-size: 3.5rem;
+    .hero-plant-small img {
+        width: 4.5rem;
     }
 
     .hero-tree {
