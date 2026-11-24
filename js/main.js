@@ -22,3 +22,21 @@ document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', 
     menuToggle.classList.remove('active');
     navLinks.classList.remove('active');
 }));
+
+// Highlight the navigation link for the visible section
+const navSectionLinks = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('main[id], section[id]');
+
+window.addEventListener('scroll', () => {
+    let currentSection = '';
+
+    sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 140) {
+            currentSection = section.id;
+        }
+    });
+
+    navSectionLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${currentSection}`);
+    });
+});

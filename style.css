@@ -340,6 +340,95 @@ html {
     flex-wrap: wrap;
 }
 
+/* Supporters Section */
+.supporters {
+    padding: 6rem 2rem;
+    background: #ffffff;
+}
+
+.supporters-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.supporters-heading {
+    max-width: 650px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.supporters-heading h2 {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+}
+
+.supporters-heading p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.supporters-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.25rem;
+}
+
+.supporter-card {
+    min-width: 0;
+    padding: 1.75rem 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    background: #ffffff;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.supporter-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(16, 185, 129, 0.35);
+    box-shadow: 0 18px 40px rgba(31, 41, 55, 0.1);
+}
+
+.supporter-avatar {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 1rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-light), #0ea5e9);
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 800;
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.25);
+}
+
+.supporter-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+}
+
+.supporter-role {
+    min-height: 2.6rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.donation {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: var(--primary-dark);
+    font-size: 1.15rem;
+}
+
+.supporters-disclaimer {
+    margin-top: 2rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
 /* Mobile Responsiveness */
 @media screen and (max-width: 860px) {
     .menu-toggle {
@@ -373,5 +462,19 @@ html {
     
     .nav-link {
         font-size: 1.5rem;
+    }
+
+    .supporters {
+        padding: 4.5rem 1.25rem;
+    }
+
+    .supporters-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .supporters-grid {
+        grid-template-columns: 1fr;
     }
 }
